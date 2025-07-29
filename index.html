@@ -1,159 +1,515 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vikas's Online Spoken English Classes</title>
-    <!-- Bootstrap CSS CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background: #112139;
-            color: #fff;
-            font-family: 'Segoe UI', Arial, sans-serif;
-        }
-        .title-highlight {
-            color: #C8FF38;
-            font-weight: bold;
-        }
-        .price-tag {
-            background: #fff;
-            color: #0e1b2c;
-            font-size: 2rem;
-            font-weight: bold;
-            border-radius: 10px;
-            padding: 15px 35px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.12);
-            display: inline-block;
-            margin-top: 10px;
-        }
-        .price-cross {
-            text-decoration: line-through;
-            font-size: 1.2rem;
-            color: #b0b0b0;
-        }
-        .register-btn {
-            background: #C8FF38;
-            color: #112139;
-            font-weight: bold;
-            border: none;
-            border-radius: 40px;
-            padding: 10px 32px;
-            font-size: 1.1rem;
-            transition: background 0.2s;
-        }
-        .register-btn:hover {
-            background: #aeed00;
-            color: #112139;
-        }
-        .nav-link {
-            color: #fff !important;
-        }
-        .feature-list li {
-            margin-bottom: 10px;
-        }
-        .batch-start {
-            color: #C8FF38;
-            font-weight: bold;
-        }
-        .testimonials {
-            background: #fff;
-            color: #112139;
-            border-radius: 8px;
-            padding: 24px 18px;
-            margin-top: 30px;
-        }
-        .insta-link {
-            color: #C13584;
-            font-weight: 600;
-        }
-        .custom-container {
-            margin-top: 40px;
-            max-width: 900px;
-        }
-        .navbar {
-            background: #0e1b2c;
-            box-shadow: 0 2px 14px rgba(0,0,0,0.2);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vikas's Online Spoken English Classes</title>
+  <!-- Bootstrap 5 CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+  <!-- Font Awesome for icons -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    rel="stylesheet"
+  />
+  <!-- AOS (Animate On Scroll) CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
+    rel="stylesheet"
+  />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8fafc;
+      color: #112139;
+      scroll-behavior: smooth;
+    }
+    /* Navbar */
+    .navbar {
+      background-color: #0e1b2c;
+    }
+    .navbar-brand,
+    .nav-link,
+    .register-btn {
+      color: #c8ff38 !important;
+      font-weight: 600;
+    }
+    .nav-link:hover {
+      color: #aeed00 !important;
+      text-decoration: underline;
+    }
+    .register-btn {
+      border-radius: 40px;
+      border: 2px solid #c8ff38;
+      transition: all 0.3s ease-in-out;
+      padding: 8px 25px;
+      font-size: 1.1rem;
+    }
+    .register-btn:hover {
+      background-color: #c8ff38;
+      color: #0e1b2c !important;
+    }
+
+    /* Hero */
+    #hero {
+      background: linear-gradient(45deg, #112139, #0e1b2c);
+      color: #c8ff38;
+      padding: 100px 15px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    #hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      letter-spacing: 2px;
+    }
+    #hero h2 {
+      color: #b6ffdd;
+      font-weight: 600;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    #hero p {
+      font-size: 1.25rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+    #hero .btn-hero {
+      background-color: #c8ff38;
+      color: #0e1b2c;
+      font-weight: 700;
+      padding: 12px 36px;
+      border-radius: 40px;
+      font-size: 1.25rem;
+      box-shadow: 0 6px 15px rgba(200, 255, 56, 0.4);
+      transition: background-color 0.3s ease;
+      border: none;
+      text-transform: uppercase;
+    }
+    #hero .btn-hero:hover {
+      background-color: #aeed00;
+      color: #0e1b2c;
+    }
+
+    /* Section Titles */
+    section h2.section-title {
+      color: #c8ff38;
+      font-weight: 700;
+      margin-bottom: 36px;
+      text-align: center;
+      letter-spacing: 1.5px;
+    }
+
+    /* About, Courses, Testimonials, Resources, Contact */
+    section {
+      max-width: 900px;
+      margin: 60px auto;
+      background: white;
+      border-radius: 14px;
+      padding: 40px 30px;
+      box-shadow: 0 8px 30px rgb(0 0 0 / 0.05);
+    }
+
+    /* Courses */
+    .course-card {
+      border-left: 6px solid #c8ff38;
+      padding-left: 20px;
+      margin-bottom: 30px;
+      background-color: #f0f9f0;
+      border-radius: 10px;
+      box-shadow: 0 6px 16px rgb(0 197 58 / 0.10);
+    }
+    .course-card h4 {
+      color: #0e1b2c;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .course-card ul {
+      padding-left: 20px;
+      list-style-type: disc;
+    }
+
+    /* Testimonials */
+    .testimonial-card {
+      background-color: #f9fafb;
+      border-radius: 12px;
+      padding: 24px 20px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+      margin-bottom: 20px;
+      font-style: italic;
+      color: #2c3e50;
+      max-width: 450px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .testimonial-card footer {
+      margin-top: 16px;
+      font-weight: 700;
+      font-style: normal;
+      color: #223344;
+      text-align: right;
+    }
+
+    /* Resources */
+    .resource-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      color: #0d6efd;
+      text-decoration: none;
+      margin-bottom: 8px;
+    }
+    .resource-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Contact form */
+    label {
+      font-weight: 600;
+      color: #112139;
+    }
+    .form-control {
+      box-shadow: none !important;
+      border-radius: 8px !important;
+      border: 1.5px solid #c8ff38 !important;
+      transition: 0.3s ease;
+    }
+    .form-control:focus {
+      border-color: #8fc01e !important;
+      box-shadow: 0 0 8px #c8ff38aa !important;
+    }
+    button[type="submit"] {
+      background-color: #c8ff38;
+      border: none;
+      color: #0e1b2c;
+      font-weight: 700;
+      border-radius: 40px;
+      padding: 12px 40px;
+      transition: background-color 0.3s ease;
+      text-transform: uppercase;
+    }
+    button[type="submit"]:hover {
+      background-color: #aeed00;
+      color: #0e1b2c;
+    }
+
+    /* WhatsApp Button Floating Bottom Right */
+    #whatsapp-float {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background-color: #25d366;
+      color: white;
+      border-radius: 50px;
+      padding: 15px 20px;
+      box-shadow: 0 6px 14px rgb(37 211 102 / 0.5);
+      cursor: pointer;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      text-decoration: none;
+    }
+    #whatsapp-float i {
+      font-size: 1.6rem;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 575.98px) {
+      #hero h1 {
+        font-size: 2rem;
+      }
+      #hero h2 {
+        font-size: 1.5rem;
+      }
+      #hero p {
+        font-size: 1rem;
+      }
+      .course-card,
+      .testimonial-card {
+        max-width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark py-2">
-        <div class="container">
-            <a class="navbar-brand title-highlight" href="#">Vikas's English</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
-                    </li>
-                    <!-- Add more nav links as you build more pages -->
-                </ul>
-                <a href="https://wa.me/918712377714?text=Hi" target="_blank">
-                    <button class="register-btn">
-                            <img src="https://icongr.am/fontawesome/whatsapp.svg?size=20&color=112139" alt="WhatsApp" class="me-2">WhatsApp</button>
-                </a>
-            </div>
-        </div>
-    </nav>
-
-    <div class="container custom-container">
-
-        <!-- Header Section -->
-        <div class="text-center mb-5">
-            <h5 class="mb-3" style="font-size:1.2rem;">తెలుగు నుంచి ఇంగ్లీష్‌ మార్చడానికి...</h5>
-            <h1><span class="title-highlight">Vikas's</span> <span style="color:#B6FFDD;">Online</span></h1>
-            <h2 style="font-size: 2rem;">Spoken English</h2>
-            <p class="mt-3">100% Refund guaranteed <span class="title-highlight">Classes</span></p>
-        </div>
-
-        <!-- Why Choose Us -->
-        <div class="row align-items-center mb-5">
-            <div class="col-md-7 mb-4 mb-md-0">
-                <h4 class="mb-3"><span class="title-highlight">WHY TO CHOOSE US?</span></h4>
-                <ul class="feature-list list-unstyled">
-                    <li><span class="title-highlight">Personalized 'AI' Assistant</span></li>
-                    <li>Flexible Time Slots (10am, 2pm, 8pm)</li>
-                    <li>Live Q&A Sessions</li>
-                    <li>Result driven Training</li>
-                    <li>Limited Seats for better interaction</li>
-                </ul>
-            </div>
-            <div class="col-md-5 text-center">
-                <div>
-                    <div class="price-cross">₹1499/-</div>
-                    <div class="price-tag">₹249/-</div>
-                </div>
-                <div class="mt-3">
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdz1OiCw6vHTpyDIfglu5HNW8AlFjhOubX5SExbLHrLHW8c7g/viewform?usp=header" target="_blank">
-                        <button class="register-btn">
-                            Register Now!
-                        </button>
-                    </a>
-                    <!-- <div><small>Send 'Hi' on WhatsApp to register</small></div> -->
-                </div>
-            </div>
-        </div>
-
-        <!-- Batch Start & Testimonials -->
-        <div class="row justify-content-center">
-            <div class="col-md-6 text-center">
-                <h5 class="batch-start">Fresh Batch starts : 28th July</h5>
-            </div>
-        </div>
-        <div class="testimonials mt-4 text-center">
-            <h5>For testimonials, visit:</h5>
-            <a href="https://instagram.com/vikas.spokenenglish" class="insta-link" target="_blank">
-                <img src="https://icongr.am/fontawesome/instagram.svg?size=18&color=c13584" alt="Instagram" class="mb-1">
-                vikas.spokenenglish
-            </a>
-        </div>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fs-4" href="#hero">Vikas's English</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav align-items-center">
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#courses">Courses</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#testimonials">Testimonials</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#resources">Resources</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+          <li class="nav-item ms-3">
+            <a
+              class="register-btn nav-link px-4"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSdz1OiCw6vHTpyDIfglu5HNW8AlFjhOubX5SExbLHrLHW8c7g/viewform?usp=header"
+              target="_blank"
+              rel="noopener"
+              >Register Now</a
+            >
+          </li>
+        </ul>
+      </div>
     </div>
+  </nav>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Hero Section -->
+  <section id="hero" class="d-flex flex-column justify-content-center" data-aos="fade-down">
+    <h1>Vikas's <span style="color:#b6ffdd;">Online</span> Spoken English</h1>
+    <h2>Telugu నుంచి ఇంగ్లీష్‌ మార్చడానికి...</h2>
+    <p>
+      100% Refund Guaranteed <strong>Classes</strong> with Personalized AI Assistant &amp; Result-Driven Training
+    </p>
+    <a
+      href="https://docs.google.com/forms/d/e/1FAIpQLSdz1OiCw6vHTpyDIfglu5HNW8AlFjhOubX5SExbLHrLHW8c7g/viewform?usp=header"
+      target="_blank"
+      rel="noopener"
+      class="btn-hero mx-auto"
+      >Join Now</a
+    >
+  </section>
+
+  <!-- About Section -->
+  <section id="about" data-aos="fade-up">
+    <h2 class="section-title">About</h2>
+    <p>
+      Vikas's Online Spoken English offers dynamic, personalized language learning focused on Telugu to English transition. Led by an experienced coach using AI assistants, our classes emphasize real results, interactive sessions, and high success rates.
+    </p>
+    <p>
+      Enjoy flexible scheduling, live Q&amp;A, and a supportive community.
+    </p>
+    <p class="fw-bold text-success">
+      🌟 Fresh Batch starts: 28th July. 100% Refund Guarantee!
+    </p>
+  </section>
+
+  <!-- Courses Section -->
+  <section id="courses" data-aos="fade-up">
+    <h2 class="section-title">Different Types of Courses</h2>
+    <div class="course-card" data-aos="zoom-in" data-aos-delay="100">
+      <h4>Basic Spoken English</h4>
+      <ul>
+        <li>Designed for beginners</li>
+        <li>Grammar, vocabulary, sentence formation</li>
+        <li>Daily speaking practice</li>
+        <li>Duration: 30 days</li>
+        <li>Fee: ₹249/- (Offer price)</li>
+      </ul>
+    </div>
+    <div class="course-card" data-aos="zoom-in" data-aos-delay="200">
+      <h4>Advanced Conversational English</h4>
+      <ul>
+        <li>Sharpen fluency with debates, group discussions and interviews</li>
+        <li>Accent and pronunciation sessions</li>
+        <li>Duration: 30 days</li>
+      </ul>
+    </div>
+    <div class="course-card" data-aos="zoom-in" data-aos-delay="300">
+      <h4>Job/Interview English</h4>
+      <ul>
+        <li>Specific to interviews, resumes, group discussions</li>
+        <li>Mock interviews and personalized feedback</li>
+        <li>Duration: 2 weeks</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" data-aos="fade-up">
+    <h2 class="section-title">Testimonials</h2>
+    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+      <p>“The classes are super interactive! My confidence grew in two weeks.”</p>
+      <footer>– Meghana</footer>
+    </div>
+    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+      <p>“Flexible timings and personal attention made a huge difference.”</p>
+      <footer>– Arjun R</footer>
+    </div>
+    <p class="text-center mt-3">
+      For more, visit:
+      <a
+        href="https://instagram.com/vikas.spokenenglish"
+        target="_blank"
+        rel="noopener"
+        style="color:#c13584; font-weight: 600; text-decoration: none;"
+        >@vikas.spokenenglish on Instagram</a
+      >
+    </p>
+  </section>
+
+  <!-- Resources & Time Slots Section -->
+  <section id="resources" data-aos="fade-up">
+    <h2 class="section-title">Resources & Time Slots</h2>
+
+    <h5>E-Books</h5>
+    <ul>
+      <!-- Replace "book1.pdf" and "book2.pdf" with your actual PDF filenames -->
+      <li>
+        <a class="resource-link" href="Everyday_English_Conversations.pdf" download
+          ><i class="fa-solid fa-file-pdf"></i> Everyday English Conversations (PDF)</a
+        >
+      </li>
+      <li>
+        <a class="resource-link" href="Telugu_to_English_Expressions.pdf" download
+          ><i class="fa-solid fa-file-pdf"></i> Telugu to English – Common Expressions (PDF)</a
+        >
+      </li>
+    </ul>
+
+    <h5 class="mt-4">Available Time Slots:</h5>
+    <ul>
+      <li>10:00am – 11:30am</li>
+      <li>2:00pm – 3:30pm</li>
+      <li>8:00pm – 9:30pm</li>
+    </ul>
+    <small>Choose a slot that suits you when you register.</small>
+  </section>
+
+  <!-- Contact Section -->
+  <!-- <section id="contact" data-aos="fade-up">
+    <h2 class="section-title">Contact</h2>
+    <p>
+      <strong>Phone / WhatsApp:</strong>
+      <a
+        href="https://wa.me/918712377714?text=Hi"
+        target="_blank"
+        rel="noopener"
+        style="color:#25d366; text-decoration: none; font-weight: 600;"
+        >+91 87 123 777 14</a
+      >
+      <br />
+      <strong>Email:</strong> support@vikasspokenenglish.com
+    </p>
+
+    <form
+      id="contact-form"
+      onsubmit="return handleSubmit(event);"
+      novalidate
+      class="mt-4"
+    >
+      <div class="mb-3">
+        <label for="name" class="form-label">Your Name *</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          class="form-control"
+          placeholder="Enter your name"
+          required
+        />
+        <div class="invalid-feedback">Please enter your name.</div>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Your Email *</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          class="form-control"
+          placeholder="Enter your email"
+          required
+        />
+        <div class="invalid-feedback">Please enter a valid email.</div>
+      </div>
+      <div class="mb-3">
+        <label for="message" class="form-label">Message *</label>
+        <textarea
+          id="message"
+          name="message"
+          rows="3"
+          class="form-control"
+          placeholder="Write your message..."
+          required
+        ></textarea>
+        <div class="invalid-feedback">Please enter a message.</div>
+      </div>
+      <button type="submit">Send</button>
+      <p class="mt-2 text-muted" style="font-size: 0.9rem;">
+        Or contact us directly on WhatsApp for urgent queries!
+      </p>
+    </form>
+  </section> -->
+
+  <!-- WhatsApp Floating Button -->
+  <a
+    href="https://wa.me/918712377714?text=Hi"
+    target="_blank"
+    rel="noopener"
+    id="whatsapp-float"
+    aria-label="Chat on WhatsApp"
+  >
+    <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+  </a>
+
+  <!-- Bootstrap JS bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- AOS animate on scroll JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      once: true, // animation only once on scroll
+      duration: 800,
+      easing: 'ease-in-out',
+    });
+
+    // Basic form validation & feedback (does NOT send email, needs backend or service)
+    function handleSubmit(event) {
+      event.preventDefault();
+      const form = event.target;
+      let valid = form.checkValidity();
+
+      if (!valid) {
+        form.classList.add('was-validated');
+        return false;
+      }
+
+      alert(
+        'Thank you for contacting us, ' +
+          form.name.value +
+          '! We will respond shortly.'
+      );
+      form.reset();
+      form.classList.remove('was-validated');
+      return true;
+    }
+  </script>
 </body>
 </html>
