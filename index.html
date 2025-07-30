@@ -374,32 +374,55 @@
   </section>
 
   <!-- Resources & Time Slots Section -->
-  <section id="resources" data-aos="fade-up">
-    <h2 class="section-title">Resources & Time Slots</h2>
+<section id="resources" data-aos="fade-up">
+  <h2 class="section-title">Resources & Time Slots</h2>
 
-    <h5>E-Books</h5>
-    <ul>
-      <!-- Replace "book1.pdf" and "book2.pdf" with your actual PDF filenames -->
-      <li>
-        <a class="resource-link" href="Everyday_English_Conversations.pdf" download
-          ><i class="fa-solid fa-file-pdf"></i> Everyday English Conversations (PDF)</a
-        >
-      </li>
-      <li>
-        <a class="resource-link" href="Telugu_to_English_Expressions.pdf" download
-          ><i class="fa-solid fa-file-pdf"></i> Telugu to English – Common Expressions (PDF)</a
-        >
-      </li>
-    </ul>
+  <h5>E-Books</h5>
+  <ul>
+    <!-- Resource links trigger modal and load PDF dynamically -->
+    <li>
+      <a class="resource-link" href="#" onclick="openPdfModal('samplepdf.pdf', 'Everyday English Conversations')">
+        <i class="fa-solid fa-file-pdf"></i> Everyday English Conversations (PDF)
+      </a>
+    </li>
+    <li>
+      <a class="resource-link" href="#" onclick="openPdfModal('samplepdf.pdf', 'Telugu to English – Common Expressions')">
+        <i class="fa-solid fa-file-pdf"></i> Telugu to English – Common Expressions (PDF)
+      </a>
+    </li>
+  </ul>
 
-    <h5 class="mt-4">Available Time Slots:</h5>
-    <ul>
-      <li>10:00am – 11:30am</li>
-      <li>2:00pm – 3:30pm</li>
-      <li>8:00pm – 9:30pm</li>
-    </ul>
-    <small>Choose a slot that suits you when you register.</small>
-  </section>
+  <h5 class="mt-4">Available Time Slots:</h5>
+  <ul>
+    <li>10:00am – 11:30am</li>
+    <li>2:00pm – 3:30pm</li>
+    <li>8:00pm – 9:30pm</li>
+  </ul>
+  <small>Choose a slot that suits you when you register.</small>
+</section>
+
+<!-- PDF Modal -->
+<div id="pdfModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 9999;">
+  <div style="position: relative; width: 80%; height: 90%; margin: 5% auto; background: #fff; border-radius: 8px; padding: 10px;">
+    <h3 id="modalTitle" style="margin: 0 0 10px; text-align: center;"></h3>
+    <iframe id="pdfViewer" src="" style="width: 100%; height: 85%; border: none;"></iframe>
+    <button onclick="closePdfModal()" style="position: absolute; top: 10px; right: 20px; background: red; color: white; border: none; padding: 5px 10px; cursor: pointer;">X</button>
+  </div>
+</div>
+
+<script>
+  function openPdfModal(pdfUrl, title) {
+    const viewerUrl = pdfUrl + '#toolbar=0&navpanes=0&scrollbar=1';
+    document.getElementById('pdfViewer').src = viewerUrl;
+    document.getElementById('modalTitle').innerText = title;
+    document.getElementById('pdfModal').style.display = 'block';
+  }
+
+  function closePdfModal() {
+    document.getElementById('pdfViewer').src = '';
+    document.getElementById('pdfModal').style.display = 'none';
+  }
+</script>
 
   <!-- Contact Section -->
   <!-- <section id="contact" data-aos="fade-up">
